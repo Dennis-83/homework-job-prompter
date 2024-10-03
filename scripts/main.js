@@ -16,20 +16,33 @@ console.log(`Sales is een uitdagende afdeling om te werken als Verkoopmanager. `
 */
 // ---------------------------------------------
 
-// Opdracht 2a
-const userInput = prompt(`Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]`);
-console.log(userInput);
-
-// Opdracht 2b,2c
-if (userInput === `marketing`) {
-    console.log(`Je koos ${userInput}. ${departments.marketing.description}`);
-} else if (userInput === `sales`) {
-    console.log(`Je koos ${userInput}. ${departments.sales.description}`);
-} else if (userInput === `customer-service`) {
-    console.log(`Je koos ${userInput}. ${departments[`customer-service`].description}`);
-} else {
-    console.error(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`);
-}
+// // Opdracht 2a
+// const userInput = prompt(`Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]`);
+// console.log(userInput);
+//// Opdracht 2a
+// // const userInput = prompt(`Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]`);
+// // console.log(userInput);
+// //
+// // // Opdracht 2b,2c
+// // if (userInput === `marketing`) {
+// //     console.log(`Je koos ${userInput}. ${departments.marketing.description}`);
+// // } else if (userInput === `sales`) {
+// //     console.log(`Je koos ${userInput}. ${departments.sales.description}`);
+// // } else if (userInput === `customer-service`) {
+// //     console.log(`Je koos ${userInput}. ${departments[`customer-service`].description}`);
+// // } else {
+// //     console.error(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`);
+// // }
+// // Opdracht 2b,2c
+// if (userInput === `marketing`) {
+//     console.log(`Je koos ${userInput}. ${departments.marketing.description}`);
+// } else if (userInput === `sales`) {
+//     console.log(`Je koos ${userInput}. ${departments.sales.description}`);
+// } else if (userInput === `customer-service`) {
+//     console.log(`Je koos ${userInput}. ${departments[`customer-service`].description}`);
+// } else {
+//     console.error(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`);
+// }
 
 
 // ---------------------------------------------
@@ -65,15 +78,15 @@ switch (userInput) {
 
 // ---------------------------------------------
 
-// Opdracht 4a
-console.log(`${userInput} is een leuke afdeling om te werken. Er werken op dit moment ${departments[userInput].numberOfEmployees} medewerkers.`);
-
-// Opdracht 4b
-const userInput2 = prompt(`Je koos ${userInput}. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.
-  0: ${departments[userInput].jobs[0].title},
-  1: ${departments[userInput].jobs[1].title},
-  2: ${departments[userInput].jobs[2].title},
-  3: ${departments[userInput].jobs[3].title}`);
+// // Opdracht 4a
+// console.log(`${userInput} is een leuke afdeling om te werken. Er werken op dit moment ${departments[userInput].numberOfEmployees} medewerkers.`);
+//
+// // Opdracht 4b
+// const userInput2 = prompt(`Je koos ${userInput}. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.
+//   0: ${departments[userInput].jobs[0].title},
+//   1: ${departments[userInput].jobs[1].title},
+//   2: ${departments[userInput].jobs[2].title},
+//   3: ${departments[userInput].jobs[3].title}`);
 
 // Opdracht 4c
 
@@ -96,23 +109,49 @@ const userInput2 = prompt(`Je koos ${userInput}. Over welke functie wil je meer 
 
 
 // Verkorte versie
-if (0 <= userInput2 && userInput2 <= 3) {
-    console.log(`Je koos ${departments[userInput].jobs[userInput2].title}. Een uitdagende rol! ${departments[userInput].jobs[userInput2].description}`);
+// if (0 <= userInput2 && userInput2 <= 3) {
+//     console.log(`Je koos ${departments[userInput].jobs[userInput2].title}. Een uitdagende rol! ${departments[userInput].jobs[userInput2].description}`);
+// } else {
+//     console.error(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`);
+// }
+
+// ---------------------------------------------
+
+// Opdracht 5a
+
+// document.getElementById('role-title').textContent = 'Dennis!';
+// document.getElementById('department-description').textContent = 'Pizza!';
+
+// Opdracht 5b
+
+// Prompt 1
+const userInput = prompt(`Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]`);
+console.log(userInput);
+
+
+if (userInput === `marketing` || userInput === `sales` || userInput === `customer-service`) {
+    console.log(`Je koos ${userInput}. ${departments[userInput].description}`);
+    document.getElementById('department-description').textContent = `${departments[userInput].description}`;
 } else {
     console.error(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`);
+    document.getElementById('error-message').textContent = `Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`;
 }
 
+// Prompt 2
+const userInput2 = prompt(`Je koos ${userInput}. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.
+  0: ${departments[userInput].jobs[0].title},
+  1: ${departments[userInput].jobs[1].title},
+  2: ${departments[userInput].jobs[2].title},
+  3: ${departments[userInput].jobs[3].title}`);
 
-
-
-
-
-
-
-
-
-
-
+if (0 <= userInput2 && userInput2 <= 3) {
+    console.log(`Je koos ${departments[userInput].jobs[userInput2].title}. Een uitdagende rol! ${departments[userInput].jobs[userInput2].description}`);
+    document.getElementById('role-title').textContent = `${departments[userInput].jobs[userInput2].title}`;
+    document.getElementById('role-description').textContent = `${departments[userInput].jobs[userInput2].description}`;
+} else {
+    console.error(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`);
+    document.getElementById('error-message').textContent = `Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`;
+}
 
 
 
